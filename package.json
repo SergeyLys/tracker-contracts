@@ -1,13 +1,26 @@
 {
-	"name": "@gymtracker/contracts",
-	"version": "1.0.0",
+	"name": "@SergeyLys/gymtracker-contracts",
+	"version": "1.0.1",
 	"description": "Shared TypeScript, Zod and gRPC contracts for microservices",
 	"type": "commonjs",
-	"main": "./dist/index.cjs",
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs"
+		},
+		"./paths": {
+			"types": "./dist/paths.d.ts",
+			"require": "./dist/paths.js",
+			"import": "./dist/paths.mjs"
+		}
+	},
 	"packageManager": "pnpm@10.21.0",
 	"files": [
-		"dist"
+		"dist",
+		"proto"
 	],
 	"repository": {
 		"type": "git",
@@ -17,7 +30,7 @@
 		"registry": "https://npm.pkg.github.com"
 	},
 	"scripts": {
-		"build": "tsup src/index.ts --format esm,cjs --external @nestjs/microservices --external rxjs --dts --clean",
+		"build": "tsup src/index.ts src/paths.ts --format esm,cjs --external @nestjs/microservices --external rxjs --dts --clean && rm -rf proto && cp -R src/grpc proto",
 		"dev": "tsup src/index.ts --format esm,cjs --external @nestjs/microservices --external rxjs --dts --watch",
 		"proto:gen": "protoc --ts_proto_out=src/generated --ts_proto_opt=nestJs=true --proto_path=src/grpc src/grpc/**/*.proto",
 		"prepublishOnly": "npm run build"
@@ -31,6 +44,7 @@
 	},
 	"devDependencies": {
 		"@nestjs/microservices": "^11.1.8",
+		"@types/node": "^22.20.3",
 		"rxjs": "^7.8.2",
 		"ts-proto": "^2.8.3",
 		"tsup": "^8.5.1",

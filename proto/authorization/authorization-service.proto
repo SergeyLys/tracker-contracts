@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package authService;
+
+import "common/auth.proto";
+
+service AuthService {
+  rpc Register(common.RegisterRequest) returns (common.AuthResponse);
+  rpc Login(common.LoginRequest) returns (common.AuthResponse);
+}
+
+message TokenRequest {
+  string token = 1;
+}

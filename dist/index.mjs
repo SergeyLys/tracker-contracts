@@ -1,8 +1,6 @@
-var __defProp = Object.defineProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
+import {
+  __export
+} from "./chunk-7P6ASYW6.mjs";
 
 // src/generated/authorization/authorization-service.ts
 var authorization_service_exports = {};
