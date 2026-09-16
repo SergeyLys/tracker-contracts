@@ -5,6 +5,7 @@
 	"type": "commonjs",
 	"main": "./dist/index.cjs",
 	"types": "./dist/index.d.ts",
+	"packageManager": "pnpm@10.21.0",
 	"files": [
 		"dist"
 	],
