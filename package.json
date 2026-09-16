@@ -1,0 +1,38 @@
+{
+	"name": "@gymtracker/contracts",
+	"version": "1.0.0",
+	"description": "Shared TypeScript, Zod and gRPC contracts for microservices",
+	"type": "commonjs",
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SergeyLys/GymTracker-contracts.git"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --external @nestjs/microservices --external rxjs --dts --clean",
+		"dev": "tsup src/index.ts --format esm,cjs --external @nestjs/microservices --external rxjs --dts --watch",
+		"proto:gen": "protoc --ts_proto_out=src/generated --ts_proto_opt=nestJs=true --proto_path=src/grpc src/grpc/**/*.proto",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"zod": "^4.1.8"
+	},
+	"peerDependencies": {
+		"@nestjs/microservices": "^11.1.8",
+		"rxjs": "^7.8.2"
+	},
+	"devDependencies": {
+		"@nestjs/microservices": "^11.1.8",
+		"rxjs": "^7.8.2",
+		"ts-proto": "^2.8.3",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3"
+	}
+}

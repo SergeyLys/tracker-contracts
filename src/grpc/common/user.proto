@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package common;
+
+message Role {
+  string name = 1;
+  string id = 2;
+}
+
+message User {
+  string email = 1;
+  string name = 2;
+  repeated Role roles = 3;
+  int32 age = 4;
+  float weight = 5;
+  float height = 6;
+  int32 gender = 7;
+  string id = 8;
+  bool isEmailVerified = 9;
+}

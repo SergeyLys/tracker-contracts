@@ -1,0 +1,403 @@
+
+
+> @shared/types@1.0.0 build /Users/sergey/projects/GymTracker-ws/shared/types
+> tsup src/index.ts --format esm,cjs --dts --clean
+
+[34mCLI[39m Building entry: src/index.ts
+[34mCLI[39m Using tsconfig: tsconfig.json
+[34mCLI[39m tsup v8.5.1
+[34mCLI[39m Target: es2020
+[34mCLI[39m Cleaning output folder
+[34mESM[39m Build start
+[34mCJS[39m Build start
+[33mESM[39m [33mYou have emitDecoratorMetadata enabled but @swc/core was not installed, skipping swc plugin[39m
+[33mCJS[39m [33mYou have emitDecoratorMetadata enabled but @swc/core was not installed, skipping swc plugin[39m
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "@nestjs/websockets/socket-module"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/nest-microservice.js:12:115:
+[37m      12 │ const { SocketModule } = (0, optional_require_1.optionalRequire)('@nestjs/websockets/socket-module', () => require([32m'@nestjs/websockets/socket-module'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "@nestjs/websockets/socket-module" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path in the bundle. You can also
+  surround this "require" call with a try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.js:13:119:
+[37m      13 │         kafkaPackage = (0, load_package_util_1.loadPackage)('kafkajs', KafkaReplyPartitionAssigner.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "@nestjs/websockets/socket-module"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/nest-microservice.js:12:115:
+[37m      12 │ const { SocketModule } = (0, optional_require_1.optionalRequire)('@nestjs/websockets/socket-module', () => require([32m'@nestjs/websockets/socket-module'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "@nestjs/websockets/socket-module" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path in the bundle. You can also
+  surround this "require" call with a try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.js:13:119:
+[37m      13 │         kafkaPackage = (0, load_package_util_1.loadPackage)('kafkajs', KafkaReplyPartitionAssigner.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "ioredis"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-redis.js:21:103:
+[37m      21 │         redisPackage = (0, load_package_util_1.loadPackage)('ioredis', ClientRedis.name, () => require([32m'ioredis'[37m));
+         ╵                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "ioredis" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "ioredis"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-redis.js:21:83:
+[37m      21 │         redisPackage = this.loadPackage('ioredis', ServerRedis.name, () => require([32m'ioredis'[37m));
+         ╵                                                                                    [32m~~~~~~~~~[0m
+
+  You can mark the path "ioredis" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "ioredis"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-redis.js:21:83:
+[37m      21 │         redisPackage = this.loadPackage('ioredis', ServerRedis.name, () => require([32m'ioredis'[37m));
+         ╵                                                                                    [32m~~~~~~~~~[0m
+
+  You can mark the path "ioredis" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "ioredis"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-redis.js:21:103:
+[37m      21 │         redisPackage = (0, load_package_util_1.loadPackage)('ioredis', ClientRedis.name, () => require([32m'ioredis'[37m));
+         ╵                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "ioredis" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqplib"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-rmq.js:33:66:
+[37m      33 │         this.loadPackage('amqplib', ServerRMQ.name, () => require([32m'amqplib'[37m));
+         ╵                                                                   [32m~~~~~~~~~[0m
+
+  You can mark the path "amqplib" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "mqtt"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-mqtt.js:22:78:
+[37m      22 │         mqttPackage = this.loadPackage('mqtt', ServerMqtt.name, () => require([32m'mqtt'[37m));
+         ╵                                                                               [32m~~~~~~[0m
+
+  You can mark the path "mqtt" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "mqtt"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-mqtt.js:22:78:
+[37m      22 │         mqttPackage = this.loadPackage('mqtt', ServerMqtt.name, () => require([32m'mqtt'[37m));
+         ╵                                                                               [32m~~~~~~[0m
+
+  You can mark the path "mqtt" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-nats.js:25:98:
+[37m      25 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', ClientNats.name, () => require([32m'nats'[37m));
+         ╵                                                                                                   [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqplib"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-rmq.js:33:66:
+[37m      33 │         this.loadPackage('amqplib', ServerRMQ.name, () => require([32m'amqplib'[37m));
+         ╵                                                                   [32m~~~~~~~~~[0m
+
+  You can mark the path "amqplib" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-nats.js:23:78:
+[37m      23 │         natsPackage = this.loadPackage('nats', ServerNats.name, () => require([32m'nats'[37m));
+         ╵                                                                               [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-nats.js:23:78:
+[37m      23 │         natsPackage = this.loadPackage('nats', ServerNats.name, () => require([32m'nats'[37m));
+         ╵                                                                               [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqp-connection-manager"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-rmq.js:34:95:
+[37m      34 │         rmqPackage = this.loadPackage('amqp-connection-manager', ServerRMQ.name, () => require([32m'amqp-connection-manager'[37m));
+         ╵                                                                                                [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "amqp-connection-manager" as external to exclude it from the bundle, which
+  will remove this error and leave the unresolved path in the bundle. You can also surround this
+  "require" call with a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqp-connection-manager"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-rmq.js:34:95:
+[37m      34 │         rmqPackage = this.loadPackage('amqp-connection-manager', ServerRMQ.name, () => require([32m'amqp-connection-manager'[37m));
+         ╵                                                                                                [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "amqp-connection-manager" as external to exclude it from the bundle, which
+  will remove this error and leave the unresolved path in the bundle. You can also surround this
+  "require" call with a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "mqtt"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-mqtt.js:30:98:
+[37m      30 │         mqttPackage = (0, load_package_util_1.loadPackage)('mqtt', ClientMqtt.name, () => require([32m'mqtt'[37m));
+         ╵                                                                                                   [32m~~~~~~[0m
+
+  You can mark the path "mqtt" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-nats.js:25:98:
+[37m      25 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', ClientNats.name, () => require([32m'nats'[37m));
+         ╵                                                                                                   [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqplib"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-rmq.js:36:86:
+[37m      36 │         (0, load_package_util_1.loadPackage)('amqplib', ClientRMQ.name, () => require([32m'amqplib'[37m));
+         ╵                                                                                       [32m~~~~~~~~~[0m
+
+  You can mark the path "amqplib" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "mqtt"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-mqtt.js:30:98:
+[37m      30 │         mqttPackage = (0, load_package_util_1.loadPackage)('mqtt', ClientMqtt.name, () => require([32m'mqtt'[37m));
+         ╵                                                                                                   [32m~~~~~~[0m
+
+  You can mark the path "mqtt" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/deserializers/nats-request-json.deserializer.js:13:115:
+[37m      13 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', NatsRequestJSONDeserializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                                    [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-kafka.js:38:83:
+[37m      38 │         kafkaPackage = this.loadPackage('kafkajs', ServerKafka.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                    [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqp-connection-manager"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-rmq.js:37:115:
+[37m      37 │         rmqPackage = (0, load_package_util_1.loadPackage)('amqp-connection-manager', ClientRMQ.name, () => require([32m'amqp-connection-manager'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "amqp-connection-manager" as external to exclude it from the bundle, which
+  will remove this error and leave the unresolved path in the bundle. You can also surround this
+  "require" call with a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/deserializers/nats-request-json.deserializer.js:13:115:
+[37m      13 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', NatsRequestJSONDeserializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                                    [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqplib"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-rmq.js:36:86:
+[37m      36 │         (0, load_package_util_1.loadPackage)('amqplib', ClientRMQ.name, () => require([32m'amqplib'[37m));
+         ╵                                                                                       [32m~~~~~~~~~[0m
+
+  You can mark the path "amqplib" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/server/server-kafka.js:38:83:
+[37m      38 │         kafkaPackage = this.loadPackage('kafkajs', ServerKafka.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                    [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/serializers/nats-record.serializer.js:10:108:
+[37m      10 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', NatsRecordSerializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                             [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/deserializers/nats-response-json.deserializer.js:14:148:
+[37m      14 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', nats_request_json_deserializer_1.NatsRequestJSONDeserializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                                                                     [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "amqp-connection-manager"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-rmq.js:37:115:
+[37m      37 │         rmqPackage = (0, load_package_util_1.loadPackage)('amqp-connection-manager', ClientRMQ.name, () => require([32m'amqp-connection-manager'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "amqp-connection-manager" as external to exclude it from the bundle, which
+  will remove this error and leave the unresolved path in the bundle. You can also surround this
+  "require" call with a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-kafka.js:55:103:
+[37m      55 │         kafkaPackage = (0, load_package_util_1.loadPackage)('kafkajs', ClientKafka.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/serializers/nats-record.serializer.js:10:108:
+[37m      10 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', NatsRecordSerializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                             [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "kafkajs"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-kafka.js:55:103:
+[37m      55 │         kafkaPackage = (0, load_package_util_1.loadPackage)('kafkajs', ClientKafka.name, () => require([32m'kafkajs'[37m));
+         ╵                                                                                                        [32m~~~~~~~~~[0m
+
+  You can mark the path "kafkajs" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "nats"[0m
+
+    ../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/deserializers/nats-response-json.deserializer.js:14:148:
+[37m      14 │         natsPackage = (0, load_package_util_1.loadPackage)('nats', nats_request_json_deserializer_1.NatsRequestJSONDeserializer.name, () => require([32m'nats'[37m));
+         ╵                                                                                                                                                     [32m~~~~~~[0m
+
+  You can mark the path "nats" as external to exclude it from the bundle, which will remove this
+  error and leave the unresolved path in the bundle. You can also surround this "require" call with
+  a try/catch block to handle this failure at run-time instead of bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "@nestjs/websockets/socket-module"[0m
+
+    ../../node_modules/.pnpm/@nestjs+core@11.1.9_@nestjs+common@11.1.9_class-transformer@0.5.1_class-validator@0.14._a08672789b492bd56237ecd226d2cf0d/node_modules/@nestjs/core/nest-application.js:19:115:
+[37m      19 │ const { SocketModule } = (0, optional_require_1.optionalRequire)('@nestjs/websockets/socket-module', () => require([32m'@nestjs/websockets/socket-module'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "@nestjs/websockets/socket-module" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path in the bundle. You can also
+  surround this "require" call with a try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "@nestjs/websockets/socket-module"[0m
+
+    ../../node_modules/.pnpm/@nestjs+core@11.1.9_@nestjs+common@11.1.9_class-transformer@0.5.1_class-validator@0.14._a08672789b492bd56237ecd226d2cf0d/node_modules/@nestjs/core/nest-application.js:19:115:
+[37m      19 │ const { SocketModule } = (0, optional_require_1.optionalRequire)('@nestjs/websockets/socket-module', () => require([32m'@nestjs/websockets/socket-module'[37m));
+         ╵                                                                                                                    [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "@nestjs/websockets/socket-module" as external to exclude it from the
+  bundle, which will remove this error and leave the unresolved path in the bundle. You can also
+  surround this "require" call with a try/catch block to handle this failure at run-time instead of
+  bundle-time.
+
+DTS Build start
+[31mCJS[39m [31mBuild failed[39m
+[31mError: Build failed with 18 errors:
+../../node_modules/.pnpm/@nestjs+core@11.1.9_@nestjs+common@11.1.9_class-transformer@0.5.1_class-validator@0.14._a08672789b492bd56237ecd226d2cf0d/node_modules/@nestjs/core/nest-application.js:19:115: ERROR: Could not resolve "@nestjs/websockets/socket-module"
+../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-kafka.js:55:103: ERROR: Could not resolve "kafkajs"
+../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-mqtt.js:30:98: ERROR: Could not resolve "mqtt"
+../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-nats.js:25:98: ERROR: Could not resolve "nats"
+../../node_modules/.pnpm/@nestjs+microservices@11.1.9_@grpc+grpc-js@1.14.2_@nestjs+common@11.1.9_class-transform_46f61bdec14d80e5d031b6895dc7a343/node_modules/@nestjs/microservices/client/client-redis.js:21:103: ERROR: Could not resolve "ioredis"
+...
+    at failureErrorWithLog (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:1467:15)
+    at /Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:926:25
+    at runOnEndCallbacks (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:1307:45)
+    at buildResponseToResult (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:924:7)
+    at /Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:951:16
+    at responseCallbacks.<computed> (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/Users/sergey/projects/GymTracker-ws/node_modules/.pnpm/esbuild@0.27.0/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:343:12)[39m
+[31mESM[39m [31mBuild failed[39m
+src/index.ts(1,44): error TS6307: File '/Users/sergey/projects/GymTracker-ws/shared/types/src/generated/authorization/authorization-service.ts' is not listed within the file list of project ''. Projects must list all files or use an 'include' pattern.
+src/index.ts(2,35): error TS6307: File '/Users/sergey/projects/GymTracker-ws/shared/types/src/generated/user/user-service.ts' is not listed within the file list of project ''. Projects must list all files or use an 'include' pattern.
+
+DTS Build error
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

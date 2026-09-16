@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package userService;
+
+import "common/auth.proto";
+import "common/user.proto";
+
+message UserResponse {
+  common.User user = 1;
+}
+
+service UserService {
+  rpc CreateUser(common.RegisterRequest) returns (UserResponse);
+  rpc ValidateUser(common.LoginRequest) returns (UserResponse);
+}

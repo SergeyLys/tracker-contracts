@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package common;
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string name = 3;
+  repeated string role = 4;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  string access_token = 1;
+}
