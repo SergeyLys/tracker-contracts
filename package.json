@@ -1,6 +1,6 @@
 {
 	"name": "@gymtracker/contracts",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "Shared TypeScript, Zod and gRPC contracts for microservices",
 	"type": "commonjs",
 	"main": "./dist/index.cjs",
