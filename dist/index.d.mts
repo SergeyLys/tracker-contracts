@@ -30,10 +30,12 @@ declare const AUTH_SERVICE_PACKAGE_NAME = "authService";
 interface AuthServiceClient {
     register(request: RegisterRequest$1): Observable<AuthResponse$1>;
     login(request: LoginRequest$1): Observable<AuthResponse$1>;
+    loginWithGoogle(request: LoginRequest$1): Observable<AuthResponse$1>;
 }
 interface AuthServiceController {
     register(request: RegisterRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
     login(request: LoginRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
+    loginWithGoogle(request: LoginRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
 }
 declare function AuthServiceControllerMethods(): (constructor: Function) => void;
 declare const AUTH_SERVICE_NAME = "AuthService";

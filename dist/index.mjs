@@ -15,7 +15,7 @@ var protobufPackage = "authService";
 var AUTH_SERVICE_PACKAGE_NAME = "authService";
 function AuthServiceControllerMethods() {
   return function(constructor) {
-    const grpcMethods = ["register", "login"];
+    const grpcMethods = ["register", "login", "loginWithGoogle"];
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);

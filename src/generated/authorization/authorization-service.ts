@@ -21,17 +21,21 @@ export interface AuthServiceClient {
   register(request: RegisterRequest): Observable<AuthResponse>;
 
   login(request: LoginRequest): Observable<AuthResponse>;
+
+  loginWithGoogle(request: LoginRequest): Observable<AuthResponse>;
 }
 
 export interface AuthServiceController {
   register(request: RegisterRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 
   login(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
+
+  loginWithGoogle(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 }
 
 export function AuthServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["register", "login"];
+    const grpcMethods: string[] = ["register", "login", "loginWithGoogle"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
