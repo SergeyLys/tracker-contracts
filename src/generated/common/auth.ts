@@ -17,7 +17,7 @@ export interface RegisterRequest {
 
 export interface LoginRequest {
   email: string;
-  password: string;
+  password?: string | undefined;
   provider: string;
 }
 

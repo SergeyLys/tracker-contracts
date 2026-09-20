@@ -10,7 +10,7 @@ interface RegisterRequest$1 {
 }
 interface LoginRequest$1 {
     email: string;
-    password: string;
+    password?: string | undefined;
     provider: string;
 }
 interface AuthResponse$1 {
