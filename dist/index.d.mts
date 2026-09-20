@@ -111,7 +111,7 @@ declare const RegisterRequestSchema: z.ZodObject<{
 }, z.core.$strip>;
 declare const LoginRequestSchema: z.ZodObject<{
     email: z.ZodString;
-    password: z.ZodString;
+    password: z.ZodOptional<z.ZodString>;
     provider: z.ZodDefault<z.ZodString>;
 }, z.core.$strip>;
 declare const AuthResponseSchema: z.ZodObject<{

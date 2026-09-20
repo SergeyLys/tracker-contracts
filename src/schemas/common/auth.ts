@@ -9,7 +9,7 @@ export const RegisterRequestSchema = z.object({
 
 export const LoginRequestSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(1),
+  password: z.string().min(1).optional(),
   provider: z.string().min(1).default('password'),
 });
 
