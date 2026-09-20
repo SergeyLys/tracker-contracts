@@ -11,6 +11,7 @@ interface RegisterRequest$1 {
 interface LoginRequest$1 {
     email: string;
     password: string;
+    provider: string;
 }
 interface AuthResponse$1 {
     accessToken: string;
@@ -109,6 +110,7 @@ declare const RegisterRequestSchema: z.ZodObject<{
 declare const LoginRequestSchema: z.ZodObject<{
     email: z.ZodString;
     password: z.ZodString;
+    provider: z.ZodDefault<z.ZodString>;
 }, z.core.$strip>;
 declare const AuthResponseSchema: z.ZodObject<{
     accessToken: z.ZodString;

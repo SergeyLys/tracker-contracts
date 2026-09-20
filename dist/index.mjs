@@ -19,11 +19,13 @@ function AuthServiceControllerMethods() {
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
     const grpcStreamMethods = [];
     for (const method of grpcStreamMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcStreamMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
   };
 }
@@ -46,11 +48,13 @@ function UserServiceControllerMethods() {
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod2("UserService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
     const grpcStreamMethods = [];
     for (const method of grpcStreamMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcStreamMethod2("UserService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
   };
 }
@@ -95,14 +99,15 @@ var TokenRequestSchema = z.object({
 // src/schemas/common/auth.ts
 import { z as z2 } from "zod";
 var RegisterRequestSchema = z2.object({
-  email: z2.string(),
-  password: z2.string(),
-  name: z2.string(),
-  role: z2.array(z2.string())
+  email: z2.string().email(),
+  password: z2.string().min(1),
+  name: z2.string().min(1),
+  role: z2.array(z2.string().min(1)).min(1)
 });
 var LoginRequestSchema = z2.object({
-  email: z2.string(),
-  password: z2.string()
+  email: z2.string().email(),
+  password: z2.string().min(1),
+  provider: z2.string().min(1).default("password")
 });
 var AuthResponseSchema = z2.object({
   accessToken: z2.string()

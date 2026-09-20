@@ -45,11 +45,13 @@ function AuthServiceControllerMethods() {
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices.GrpcMethod)("AuthService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
     const grpcStreamMethods = [];
     for (const method of grpcStreamMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices.GrpcStreamMethod)("AuthService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
   };
 }
@@ -72,11 +74,13 @@ function UserServiceControllerMethods() {
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices2.GrpcMethod)("UserService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
     const grpcStreamMethods = [];
     for (const method of grpcStreamMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices2.GrpcStreamMethod)("UserService", method)(constructor.prototype[method], method, descriptor);
+      Object.defineProperty(constructor.prototype, method, descriptor);
     }
   };
 }
@@ -121,14 +125,15 @@ var TokenRequestSchema = import_zod.z.object({
 // src/schemas/common/auth.ts
 var import_zod2 = require("zod");
 var RegisterRequestSchema = import_zod2.z.object({
-  email: import_zod2.z.string(),
-  password: import_zod2.z.string(),
-  name: import_zod2.z.string(),
-  role: import_zod2.z.array(import_zod2.z.string())
+  email: import_zod2.z.string().email(),
+  password: import_zod2.z.string().min(1),
+  name: import_zod2.z.string().min(1),
+  role: import_zod2.z.array(import_zod2.z.string().min(1)).min(1)
 });
 var LoginRequestSchema = import_zod2.z.object({
-  email: import_zod2.z.string(),
-  password: import_zod2.z.string()
+  email: import_zod2.z.string().email(),
+  password: import_zod2.z.string().min(1),
+  provider: import_zod2.z.string().min(1).default("password")
 });
 var AuthResponseSchema = import_zod2.z.object({
   accessToken: import_zod2.z.string()
