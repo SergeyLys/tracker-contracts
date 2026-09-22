@@ -1,6 +1,6 @@
 {
 	"name": "@SergeyLys/tracker-contracts",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Shared TypeScript, Zod and gRPC contracts for microservices",
 	"type": "commonjs",
 	"main": "./dist/index.js",
