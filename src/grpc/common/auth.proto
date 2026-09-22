@@ -13,6 +13,7 @@ message LoginRequest {
   string email = 1;
   optional string password = 2;
   string provider = 3;
+  optional string providerId = 4;
 }
 
 message AuthResponse {

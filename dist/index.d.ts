@@ -12,6 +12,7 @@ interface LoginRequest$1 {
     email: string;
     password?: string | undefined;
     provider: string;
+    providerId?: string | undefined;
 }
 interface AuthResponse$1 {
     accessToken: string;
@@ -113,6 +114,7 @@ declare const LoginRequestSchema: z.ZodObject<{
     email: z.ZodString;
     password: z.ZodOptional<z.ZodString>;
     provider: z.ZodDefault<z.ZodString>;
+    providerId: z.ZodOptional<z.ZodString>;
 }, z.core.$strip>;
 declare const AuthResponseSchema: z.ZodObject<{
     accessToken: z.ZodString;

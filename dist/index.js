@@ -133,7 +133,8 @@ var RegisterRequestSchema = import_zod2.z.object({
 var LoginRequestSchema = import_zod2.z.object({
   email: import_zod2.z.string().email(),
   password: import_zod2.z.string().min(1).optional(),
-  provider: import_zod2.z.string().min(1).default("password")
+  provider: import_zod2.z.string().min(1).default("password"),
+  providerId: import_zod2.z.string().min(1).optional()
 });
 var AuthResponseSchema = import_zod2.z.object({
   accessToken: import_zod2.z.string()

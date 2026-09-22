@@ -107,7 +107,8 @@ var RegisterRequestSchema = z2.object({
 var LoginRequestSchema = z2.object({
   email: z2.string().email(),
   password: z2.string().min(1).optional(),
-  provider: z2.string().min(1).default("password")
+  provider: z2.string().min(1).default("password"),
+  providerId: z2.string().min(1).optional()
 });
 var AuthResponseSchema = z2.object({
   accessToken: z2.string()

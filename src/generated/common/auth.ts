@@ -19,6 +19,7 @@ export interface LoginRequest {
   email: string;
   password?: string | undefined;
   provider: string;
+  providerId?: string | undefined;
 }
 
 export interface AuthResponse {

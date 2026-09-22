@@ -11,6 +11,7 @@ export const LoginRequestSchema = z.object({
   email: z.string().email(),
   password: z.string().min(1).optional(),
   provider: z.string().min(1).default('password'),
+  providerId: z.string().min(1).optional(),
 });
 
 export const AuthResponseSchema = z.object({
