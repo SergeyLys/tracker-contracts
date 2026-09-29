@@ -1,21 +1,22 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const RegisterRequestSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1),
-  name: z.string().min(1),
-  role: z.array(z.string().min(1)).min(1),
+	email: z.string().email(),
+	password: z.string().min(1),
+	name: z.string().min(1),
+	role: z.array(z.string().min(1)).min(1),
 });
 
 export const LoginRequestSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(1).optional(),
-  provider: z.string().min(1).default('password'),
-  providerId: z.string().min(1).optional(),
+	email: z.string().email(),
+	password: z.string().min(1).optional(),
+	provider: z.string().min(1).default("password"),
+	providerId: z.string().min(1).optional(),
 });
 
 export const AuthResponseSchema = z.object({
-  accessToken: z.string(),
+	accessToken: z.string(),
+	refreshToken: z.string(),
 });
 
 export type RegisterRequest = z.infer<typeof RegisterRequestSchema>;

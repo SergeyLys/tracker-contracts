@@ -111,7 +111,8 @@ var LoginRequestSchema = z2.object({
   providerId: z2.string().min(1).optional()
 });
 var AuthResponseSchema = z2.object({
-  accessToken: z2.string()
+  accessToken: z2.string(),
+  refreshToken: z2.string()
 });
 
 // src/schemas/common/user.ts

@@ -137,7 +137,8 @@ var LoginRequestSchema = import_zod2.z.object({
   providerId: import_zod2.z.string().min(1).optional()
 });
 var AuthResponseSchema = import_zod2.z.object({
-  accessToken: import_zod2.z.string()
+  accessToken: import_zod2.z.string(),
+  refreshToken: import_zod2.z.string()
 });
 
 // src/schemas/common/user.ts

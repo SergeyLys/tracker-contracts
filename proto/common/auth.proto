@@ -17,5 +17,6 @@ message LoginRequest {
 }
 
 message AuthResponse {
-  string access_token = 1;
+  string accessToken = 1;
+  string refreshToken = 2;
 }

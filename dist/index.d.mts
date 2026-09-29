@@ -16,6 +16,7 @@ interface LoginRequest$1 {
 }
 interface AuthResponse$1 {
     accessToken: string;
+    refreshToken: string;
 }
 declare const COMMON_PACKAGE_NAME$1 = "common";
 
@@ -118,6 +119,7 @@ declare const LoginRequestSchema: z.ZodObject<{
 }, z.core.$strip>;
 declare const AuthResponseSchema: z.ZodObject<{
     accessToken: z.ZodString;
+    refreshToken: z.ZodString;
 }, z.core.$strip>;
 type RegisterRequest = z.infer<typeof RegisterRequestSchema>;
 type LoginRequest = z.infer<typeof LoginRequestSchema>;
