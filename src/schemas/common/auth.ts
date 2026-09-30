@@ -14,6 +14,10 @@ export const LoginRequestSchema = z.object({
 	providerId: z.string().min(1).optional(),
 });
 
+export const RefreshTokenRequestSchema = z.object({
+	currentRefreshToken: z.string(),
+});
+
 export const AuthResponseSchema = z.object({
 	accessToken: z.string(),
 	refreshToken: z.string(),
@@ -21,4 +25,5 @@ export const AuthResponseSchema = z.object({
 
 export type RegisterRequest = z.infer<typeof RegisterRequestSchema>;
 export type LoginRequest = z.infer<typeof LoginRequestSchema>;
+export type RefreshTokenRequest = z.infer<typeof RefreshTokenRequestSchema>;
 export type AuthResponse = z.infer<typeof AuthResponseSchema>;

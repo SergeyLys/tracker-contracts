@@ -8,8 +8,5 @@ service AuthService {
   rpc Register(common.RegisterRequest) returns (common.AuthResponse);
   rpc Login(common.LoginRequest) returns (common.AuthResponse);
   rpc LoginWithGoogle(common.LoginRequest) returns (common.AuthResponse);
-}
-
-message TokenRequest {
-  string token = 1;
+  rpc refresh(common.RefreshTokenRequest) returns (common.AuthResponse);
 }

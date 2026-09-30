@@ -41,7 +41,7 @@ var protobufPackage = "authService";
 var AUTH_SERVICE_PACKAGE_NAME = "authService";
 function AuthServiceControllerMethods() {
   return function(constructor) {
-    const grpcMethods = ["register", "login", "loginWithGoogle"];
+    const grpcMethods = ["register", "login", "loginWithGoogle", "refresh"];
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices.GrpcMethod)("AuthService", method)(constructor.prototype[method], method, descriptor);
@@ -110,63 +110,60 @@ __export(schemas_exports, {
   AuthResponseSchema: () => AuthResponseSchema,
   GetUserByIdRequestSchema: () => GetUserByIdRequestSchema,
   LoginRequestSchema: () => LoginRequestSchema,
+  RefreshTokenRequestSchema: () => RefreshTokenRequestSchema,
   RegisterRequestSchema: () => RegisterRequestSchema,
   RoleSchema: () => RoleSchema,
-  TokenRequestSchema: () => TokenRequestSchema,
   UserResponseSchema: () => UserResponseSchema,
   UserSchema: () => UserSchema
 });
 
-// src/schemas/authorization/authorization-service.ts
-var import_zod = require("zod");
-var TokenRequestSchema = import_zod.z.object({
-  token: import_zod.z.string()
-});
-
 // src/schemas/common/auth.ts
-var import_zod2 = require("zod");
-var RegisterRequestSchema = import_zod2.z.object({
-  email: import_zod2.z.string().email(),
-  password: import_zod2.z.string().min(1),
-  name: import_zod2.z.string().min(1),
-  role: import_zod2.z.array(import_zod2.z.string().min(1)).min(1)
+var import_zod = require("zod");
+var RegisterRequestSchema = import_zod.z.object({
+  email: import_zod.z.string().email(),
+  password: import_zod.z.string().min(1),
+  name: import_zod.z.string().min(1),
+  role: import_zod.z.array(import_zod.z.string().min(1)).min(1)
 });
-var LoginRequestSchema = import_zod2.z.object({
-  email: import_zod2.z.string().email(),
-  password: import_zod2.z.string().min(1).optional(),
-  provider: import_zod2.z.string().min(1).default("password"),
-  providerId: import_zod2.z.string().min(1).optional()
+var LoginRequestSchema = import_zod.z.object({
+  email: import_zod.z.string().email(),
+  password: import_zod.z.string().min(1).optional(),
+  provider: import_zod.z.string().min(1).default("password"),
+  providerId: import_zod.z.string().min(1).optional()
 });
-var AuthResponseSchema = import_zod2.z.object({
-  accessToken: import_zod2.z.string(),
-  refreshToken: import_zod2.z.string()
+var RefreshTokenRequestSchema = import_zod.z.object({
+  currentRefreshToken: import_zod.z.string()
+});
+var AuthResponseSchema = import_zod.z.object({
+  accessToken: import_zod.z.string(),
+  refreshToken: import_zod.z.string()
 });
 
 // src/schemas/common/user.ts
-var import_zod3 = require("zod");
-var RoleSchema = import_zod3.z.object({
-  name: import_zod3.z.string(),
-  id: import_zod3.z.string()
+var import_zod2 = require("zod");
+var RoleSchema = import_zod2.z.object({
+  name: import_zod2.z.string(),
+  id: import_zod2.z.string()
 });
-var UserSchema = import_zod3.z.object({
-  email: import_zod3.z.string(),
-  name: import_zod3.z.string(),
-  roles: import_zod3.z.array(RoleSchema),
-  age: import_zod3.z.number(),
-  weight: import_zod3.z.number(),
-  height: import_zod3.z.number(),
-  gender: import_zod3.z.number(),
-  id: import_zod3.z.string(),
-  isEmailVerified: import_zod3.z.boolean()
+var UserSchema = import_zod2.z.object({
+  email: import_zod2.z.string(),
+  name: import_zod2.z.string(),
+  roles: import_zod2.z.array(RoleSchema),
+  age: import_zod2.z.number(),
+  weight: import_zod2.z.number(),
+  height: import_zod2.z.number(),
+  gender: import_zod2.z.number(),
+  id: import_zod2.z.string(),
+  isEmailVerified: import_zod2.z.boolean()
 });
 
 // src/schemas/user/user-service.ts
-var import_zod4 = require("zod");
-var UserResponseSchema = import_zod4.z.object({
+var import_zod3 = require("zod");
+var UserResponseSchema = import_zod3.z.object({
   user: UserSchema.optional()
 });
-var GetUserByIdRequestSchema = import_zod4.z.object({
-  userId: import_zod4.z.string()
+var GetUserByIdRequestSchema = import_zod3.z.object({
+  userId: import_zod3.z.string()
 });
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

@@ -15,7 +15,7 @@ var protobufPackage = "authService";
 var AUTH_SERVICE_PACKAGE_NAME = "authService";
 function AuthServiceControllerMethods() {
   return function(constructor) {
-    const grpcMethods = ["register", "login", "loginWithGoogle"];
+    const grpcMethods = ["register", "login", "loginWithGoogle", "refresh"];
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
@@ -84,63 +84,60 @@ __export(schemas_exports, {
   AuthResponseSchema: () => AuthResponseSchema,
   GetUserByIdRequestSchema: () => GetUserByIdRequestSchema,
   LoginRequestSchema: () => LoginRequestSchema,
+  RefreshTokenRequestSchema: () => RefreshTokenRequestSchema,
   RegisterRequestSchema: () => RegisterRequestSchema,
   RoleSchema: () => RoleSchema,
-  TokenRequestSchema: () => TokenRequestSchema,
   UserResponseSchema: () => UserResponseSchema,
   UserSchema: () => UserSchema
 });
 
-// src/schemas/authorization/authorization-service.ts
-import { z } from "zod";
-var TokenRequestSchema = z.object({
-  token: z.string()
-});
-
 // src/schemas/common/auth.ts
-import { z as z2 } from "zod";
-var RegisterRequestSchema = z2.object({
-  email: z2.string().email(),
-  password: z2.string().min(1),
-  name: z2.string().min(1),
-  role: z2.array(z2.string().min(1)).min(1)
+import { z } from "zod";
+var RegisterRequestSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1),
+  name: z.string().min(1),
+  role: z.array(z.string().min(1)).min(1)
 });
-var LoginRequestSchema = z2.object({
-  email: z2.string().email(),
-  password: z2.string().min(1).optional(),
-  provider: z2.string().min(1).default("password"),
-  providerId: z2.string().min(1).optional()
+var LoginRequestSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(1).optional(),
+  provider: z.string().min(1).default("password"),
+  providerId: z.string().min(1).optional()
 });
-var AuthResponseSchema = z2.object({
-  accessToken: z2.string(),
-  refreshToken: z2.string()
+var RefreshTokenRequestSchema = z.object({
+  currentRefreshToken: z.string()
+});
+var AuthResponseSchema = z.object({
+  accessToken: z.string(),
+  refreshToken: z.string()
 });
 
 // src/schemas/common/user.ts
-import { z as z3 } from "zod";
-var RoleSchema = z3.object({
-  name: z3.string(),
-  id: z3.string()
+import { z as z2 } from "zod";
+var RoleSchema = z2.object({
+  name: z2.string(),
+  id: z2.string()
 });
-var UserSchema = z3.object({
-  email: z3.string(),
-  name: z3.string(),
-  roles: z3.array(RoleSchema),
-  age: z3.number(),
-  weight: z3.number(),
-  height: z3.number(),
-  gender: z3.number(),
-  id: z3.string(),
-  isEmailVerified: z3.boolean()
+var UserSchema = z2.object({
+  email: z2.string(),
+  name: z2.string(),
+  roles: z2.array(RoleSchema),
+  age: z2.number(),
+  weight: z2.number(),
+  height: z2.number(),
+  gender: z2.number(),
+  id: z2.string(),
+  isEmailVerified: z2.boolean()
 });
 
 // src/schemas/user/user-service.ts
-import { z as z4 } from "zod";
-var UserResponseSchema = z4.object({
+import { z as z3 } from "zod";
+var UserResponseSchema = z3.object({
   user: UserSchema.optional()
 });
-var GetUserByIdRequestSchema = z4.object({
-  userId: z4.string()
+var GetUserByIdRequestSchema = z3.object({
+  userId: z3.string()
 });
 export {
   authorization_service_exports as AuthorizationServiceTypes,

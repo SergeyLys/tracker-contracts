@@ -22,6 +22,10 @@ export interface LoginRequest {
   providerId?: string | undefined;
 }
 
+export interface RefreshTokenRequest {
+  currentRefreshToken: string;
+}
+
 export interface AuthResponse {
   accessToken: string;
   refreshToken: string;

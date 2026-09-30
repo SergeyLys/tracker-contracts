@@ -16,6 +16,10 @@ message LoginRequest {
   optional string providerId = 4;
 }
 
+message RefreshTokenRequest {
+  string currentRefreshToken = 1;
+}
+
 message AuthResponse {
   string accessToken = 1;
   string refreshToken = 2;

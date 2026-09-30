@@ -7,13 +7,9 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { AuthResponse, LoginRequest, RegisterRequest } from "../common/auth";
+import { AuthResponse, LoginRequest, RefreshTokenRequest, RegisterRequest } from "../common/auth";
 
 export const protobufPackage = "authService";
-
-export interface TokenRequest {
-  token: string;
-}
 
 export const AUTH_SERVICE_PACKAGE_NAME = "authService";
 
@@ -23,6 +19,8 @@ export interface AuthServiceClient {
   login(request: LoginRequest): Observable<AuthResponse>;
 
   loginWithGoogle(request: LoginRequest): Observable<AuthResponse>;
+
+  refresh(request: RefreshTokenRequest): Observable<AuthResponse>;
 }
 
 export interface AuthServiceController {
@@ -31,11 +29,13 @@ export interface AuthServiceController {
   login(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 
   loginWithGoogle(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
+
+  refresh(request: RefreshTokenRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 }
 
 export function AuthServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["register", "login", "loginWithGoogle"];
+    const grpcMethods: string[] = ["register", "login", "loginWithGoogle", "refresh"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);

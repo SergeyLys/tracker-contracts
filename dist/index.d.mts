@@ -14,6 +14,9 @@ interface LoginRequest$1 {
     provider: string;
     providerId?: string | undefined;
 }
+interface RefreshTokenRequest$1 {
+    currentRefreshToken: string;
+}
 interface AuthResponse$1 {
     accessToken: string;
     refreshToken: string;
@@ -21,23 +24,22 @@ interface AuthResponse$1 {
 declare const COMMON_PACKAGE_NAME$1 = "common";
 
 declare namespace auth {
-  export { type AuthResponse$1 as AuthResponse, COMMON_PACKAGE_NAME$1 as COMMON_PACKAGE_NAME, type LoginRequest$1 as LoginRequest, type RegisterRequest$1 as RegisterRequest, protobufPackage$3 as protobufPackage };
+  export { type AuthResponse$1 as AuthResponse, COMMON_PACKAGE_NAME$1 as COMMON_PACKAGE_NAME, type LoginRequest$1 as LoginRequest, type RefreshTokenRequest$1 as RefreshTokenRequest, type RegisterRequest$1 as RegisterRequest, protobufPackage$3 as protobufPackage };
 }
 
 declare const protobufPackage$2 = "authService";
-interface TokenRequest$1 {
-    token: string;
-}
 declare const AUTH_SERVICE_PACKAGE_NAME = "authService";
 interface AuthServiceClient {
     register(request: RegisterRequest$1): Observable<AuthResponse$1>;
     login(request: LoginRequest$1): Observable<AuthResponse$1>;
     loginWithGoogle(request: LoginRequest$1): Observable<AuthResponse$1>;
+    refresh(request: RefreshTokenRequest$1): Observable<AuthResponse$1>;
 }
 interface AuthServiceController {
     register(request: RegisterRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
     login(request: LoginRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
     loginWithGoogle(request: LoginRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
+    refresh(request: RefreshTokenRequest$1): Promise<AuthResponse$1> | Observable<AuthResponse$1> | AuthResponse$1;
 }
 declare function AuthServiceControllerMethods(): (constructor: Function) => void;
 declare const AUTH_SERVICE_NAME = "AuthService";
@@ -48,7 +50,7 @@ type authorizationService_AuthServiceClient = AuthServiceClient;
 type authorizationService_AuthServiceController = AuthServiceController;
 declare const authorizationService_AuthServiceControllerMethods: typeof AuthServiceControllerMethods;
 declare namespace authorizationService {
-  export { authorizationService_AUTH_SERVICE_NAME as AUTH_SERVICE_NAME, authorizationService_AUTH_SERVICE_PACKAGE_NAME as AUTH_SERVICE_PACKAGE_NAME, type authorizationService_AuthServiceClient as AuthServiceClient, type authorizationService_AuthServiceController as AuthServiceController, authorizationService_AuthServiceControllerMethods as AuthServiceControllerMethods, type TokenRequest$1 as TokenRequest, protobufPackage$2 as protobufPackage };
+  export { authorizationService_AUTH_SERVICE_NAME as AUTH_SERVICE_NAME, authorizationService_AUTH_SERVICE_PACKAGE_NAME as AUTH_SERVICE_PACKAGE_NAME, type authorizationService_AuthServiceClient as AuthServiceClient, type authorizationService_AuthServiceController as AuthServiceController, authorizationService_AuthServiceControllerMethods as AuthServiceControllerMethods, protobufPackage$2 as protobufPackage };
 }
 
 declare const protobufPackage$1 = "common";
@@ -105,11 +107,6 @@ declare namespace userService {
   export { type GetUserByIdRequest$1 as GetUserByIdRequest, userService_USER_SERVICE_NAME as USER_SERVICE_NAME, userService_USER_SERVICE_PACKAGE_NAME as USER_SERVICE_PACKAGE_NAME, type UserResponse$1 as UserResponse, type userService_UserServiceClient as UserServiceClient, type userService_UserServiceController as UserServiceController, userService_UserServiceControllerMethods as UserServiceControllerMethods, userService_protobufPackage as protobufPackage };
 }
 
-declare const TokenRequestSchema: z.ZodObject<{
-    token: z.ZodString;
-}, z.core.$strip>;
-type TokenRequest = z.infer<typeof TokenRequestSchema>;
-
 declare const RegisterRequestSchema: z.ZodObject<{
     email: z.ZodString;
     password: z.ZodString;
@@ -122,12 +119,16 @@ declare const LoginRequestSchema: z.ZodObject<{
     provider: z.ZodDefault<z.ZodString>;
     providerId: z.ZodOptional<z.ZodString>;
 }, z.core.$strip>;
+declare const RefreshTokenRequestSchema: z.ZodObject<{
+    currentRefreshToken: z.ZodString;
+}, z.core.$strip>;
 declare const AuthResponseSchema: z.ZodObject<{
     accessToken: z.ZodString;
     refreshToken: z.ZodString;
 }, z.core.$strip>;
 type RegisterRequest = z.infer<typeof RegisterRequestSchema>;
 type LoginRequest = z.infer<typeof LoginRequestSchema>;
+type RefreshTokenRequest = z.infer<typeof RefreshTokenRequestSchema>;
 type AuthResponse = z.infer<typeof AuthResponseSchema>;
 
 declare const RoleSchema: z.ZodObject<{
@@ -179,18 +180,18 @@ type index_GetUserByIdRequest = GetUserByIdRequest;
 declare const index_GetUserByIdRequestSchema: typeof GetUserByIdRequestSchema;
 type index_LoginRequest = LoginRequest;
 declare const index_LoginRequestSchema: typeof LoginRequestSchema;
+type index_RefreshTokenRequest = RefreshTokenRequest;
+declare const index_RefreshTokenRequestSchema: typeof RefreshTokenRequestSchema;
 type index_RegisterRequest = RegisterRequest;
 declare const index_RegisterRequestSchema: typeof RegisterRequestSchema;
 type index_Role = Role;
 declare const index_RoleSchema: typeof RoleSchema;
-type index_TokenRequest = TokenRequest;
-declare const index_TokenRequestSchema: typeof TokenRequestSchema;
 type index_User = User;
 type index_UserResponse = UserResponse;
 declare const index_UserResponseSchema: typeof UserResponseSchema;
 declare const index_UserSchema: typeof UserSchema;
 declare namespace index {
-  export { type index_AuthResponse as AuthResponse, index_AuthResponseSchema as AuthResponseSchema, type index_GetUserByIdRequest as GetUserByIdRequest, index_GetUserByIdRequestSchema as GetUserByIdRequestSchema, type index_LoginRequest as LoginRequest, index_LoginRequestSchema as LoginRequestSchema, type index_RegisterRequest as RegisterRequest, index_RegisterRequestSchema as RegisterRequestSchema, type index_Role as Role, index_RoleSchema as RoleSchema, type index_TokenRequest as TokenRequest, index_TokenRequestSchema as TokenRequestSchema, type index_User as User, type index_UserResponse as UserResponse, index_UserResponseSchema as UserResponseSchema, index_UserSchema as UserSchema };
+  export { type index_AuthResponse as AuthResponse, index_AuthResponseSchema as AuthResponseSchema, type index_GetUserByIdRequest as GetUserByIdRequest, index_GetUserByIdRequestSchema as GetUserByIdRequestSchema, type index_LoginRequest as LoginRequest, index_LoginRequestSchema as LoginRequestSchema, type index_RefreshTokenRequest as RefreshTokenRequest, index_RefreshTokenRequestSchema as RefreshTokenRequestSchema, type index_RegisterRequest as RegisterRequest, index_RegisterRequestSchema as RegisterRequestSchema, type index_Role as Role, index_RoleSchema as RoleSchema, type index_User as User, type index_UserResponse as UserResponse, index_UserResponseSchema as UserResponseSchema, index_UserSchema as UserSchema };
 }
 
 export { authorizationService as AuthorizationServiceTypes, auth as CommonAuthTypes, user as CommonUserTypes, index as Schemas, userService as UserServiceTypes };
