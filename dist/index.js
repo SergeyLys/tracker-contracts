@@ -70,7 +70,7 @@ var protobufPackage2 = "userService";
 var USER_SERVICE_PACKAGE_NAME = "userService";
 function UserServiceControllerMethods() {
   return function(constructor) {
-    const grpcMethods = ["createUser", "validateUser"];
+    const grpcMethods = ["createUser", "validateUser", "getUserById"];
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       (0, import_microservices2.GrpcMethod)("UserService", method)(constructor.prototype[method], method, descriptor);
@@ -108,6 +108,7 @@ var COMMON_PACKAGE_NAME2 = "common";
 var schemas_exports = {};
 __export(schemas_exports, {
   AuthResponseSchema: () => AuthResponseSchema,
+  GetUserByIdRequestSchema: () => GetUserByIdRequestSchema,
   LoginRequestSchema: () => LoginRequestSchema,
   RegisterRequestSchema: () => RegisterRequestSchema,
   RoleSchema: () => RoleSchema,
@@ -163,6 +164,9 @@ var UserSchema = import_zod3.z.object({
 var import_zod4 = require("zod");
 var UserResponseSchema = import_zod4.z.object({
   user: UserSchema.optional()
+});
+var GetUserByIdRequestSchema = import_zod4.z.object({
+  userId: import_zod4.z.string()
 });
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

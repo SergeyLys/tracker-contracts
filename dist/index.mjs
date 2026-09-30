@@ -44,7 +44,7 @@ var protobufPackage2 = "userService";
 var USER_SERVICE_PACKAGE_NAME = "userService";
 function UserServiceControllerMethods() {
   return function(constructor) {
-    const grpcMethods = ["createUser", "validateUser"];
+    const grpcMethods = ["createUser", "validateUser", "getUserById"];
     for (const method of grpcMethods) {
       const descriptor = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod2("UserService", method)(constructor.prototype[method], method, descriptor);
@@ -82,6 +82,7 @@ var COMMON_PACKAGE_NAME2 = "common";
 var schemas_exports = {};
 __export(schemas_exports, {
   AuthResponseSchema: () => AuthResponseSchema,
+  GetUserByIdRequestSchema: () => GetUserByIdRequestSchema,
   LoginRequestSchema: () => LoginRequestSchema,
   RegisterRequestSchema: () => RegisterRequestSchema,
   RoleSchema: () => RoleSchema,
@@ -137,6 +138,9 @@ var UserSchema = z3.object({
 import { z as z4 } from "zod";
 var UserResponseSchema = z4.object({
   user: UserSchema.optional()
+});
+var GetUserByIdRequestSchema = z4.object({
+  userId: z4.string()
 });
 export {
   authorization_service_exports as AuthorizationServiceTypes,

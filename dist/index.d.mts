@@ -78,14 +78,19 @@ declare const protobufPackage = "userService";
 interface UserResponse$1 {
     user: User$1 | undefined;
 }
+interface GetUserByIdRequest$1 {
+    userId: string;
+}
 declare const USER_SERVICE_PACKAGE_NAME = "userService";
 interface UserServiceClient {
     createUser(request: RegisterRequest$1): Observable<UserResponse$1>;
     validateUser(request: LoginRequest$1): Observable<UserResponse$1>;
+    getUserById(request: GetUserByIdRequest$1): Observable<UserResponse$1>;
 }
 interface UserServiceController {
     createUser(request: RegisterRequest$1): Promise<UserResponse$1> | Observable<UserResponse$1> | UserResponse$1;
     validateUser(request: LoginRequest$1): Promise<UserResponse$1> | Observable<UserResponse$1> | UserResponse$1;
+    getUserById(request: GetUserByIdRequest$1): Promise<UserResponse$1> | Observable<UserResponse$1> | UserResponse$1;
 }
 declare function UserServiceControllerMethods(): (constructor: Function) => void;
 declare const USER_SERVICE_NAME = "UserService";
@@ -97,7 +102,7 @@ type userService_UserServiceController = UserServiceController;
 declare const userService_UserServiceControllerMethods: typeof UserServiceControllerMethods;
 declare const userService_protobufPackage: typeof protobufPackage;
 declare namespace userService {
-  export { userService_USER_SERVICE_NAME as USER_SERVICE_NAME, userService_USER_SERVICE_PACKAGE_NAME as USER_SERVICE_PACKAGE_NAME, type UserResponse$1 as UserResponse, type userService_UserServiceClient as UserServiceClient, type userService_UserServiceController as UserServiceController, userService_UserServiceControllerMethods as UserServiceControllerMethods, userService_protobufPackage as protobufPackage };
+  export { type GetUserByIdRequest$1 as GetUserByIdRequest, userService_USER_SERVICE_NAME as USER_SERVICE_NAME, userService_USER_SERVICE_PACKAGE_NAME as USER_SERVICE_PACKAGE_NAME, type UserResponse$1 as UserResponse, type userService_UserServiceClient as UserServiceClient, type userService_UserServiceController as UserServiceController, userService_UserServiceControllerMethods as UserServiceControllerMethods, userService_protobufPackage as protobufPackage };
 }
 
 declare const TokenRequestSchema: z.ZodObject<{
@@ -162,10 +167,16 @@ declare const UserResponseSchema: z.ZodObject<{
         isEmailVerified: z.ZodBoolean;
     }, z.core.$strip>>;
 }, z.core.$strip>;
+declare const GetUserByIdRequestSchema: z.ZodObject<{
+    userId: z.ZodString;
+}, z.core.$strip>;
 type UserResponse = z.infer<typeof UserResponseSchema>;
+type GetUserByIdRequest = z.infer<typeof GetUserByIdRequestSchema>;
 
 type index_AuthResponse = AuthResponse;
 declare const index_AuthResponseSchema: typeof AuthResponseSchema;
+type index_GetUserByIdRequest = GetUserByIdRequest;
+declare const index_GetUserByIdRequestSchema: typeof GetUserByIdRequestSchema;
 type index_LoginRequest = LoginRequest;
 declare const index_LoginRequestSchema: typeof LoginRequestSchema;
 type index_RegisterRequest = RegisterRequest;
@@ -179,7 +190,7 @@ type index_UserResponse = UserResponse;
 declare const index_UserResponseSchema: typeof UserResponseSchema;
 declare const index_UserSchema: typeof UserSchema;
 declare namespace index {
-  export { type index_AuthResponse as AuthResponse, index_AuthResponseSchema as AuthResponseSchema, type index_LoginRequest as LoginRequest, index_LoginRequestSchema as LoginRequestSchema, type index_RegisterRequest as RegisterRequest, index_RegisterRequestSchema as RegisterRequestSchema, type index_Role as Role, index_RoleSchema as RoleSchema, type index_TokenRequest as TokenRequest, index_TokenRequestSchema as TokenRequestSchema, type index_User as User, type index_UserResponse as UserResponse, index_UserResponseSchema as UserResponseSchema, index_UserSchema as UserSchema };
+  export { type index_AuthResponse as AuthResponse, index_AuthResponseSchema as AuthResponseSchema, type index_GetUserByIdRequest as GetUserByIdRequest, index_GetUserByIdRequestSchema as GetUserByIdRequestSchema, type index_LoginRequest as LoginRequest, index_LoginRequestSchema as LoginRequestSchema, type index_RegisterRequest as RegisterRequest, index_RegisterRequestSchema as RegisterRequestSchema, type index_Role as Role, index_RoleSchema as RoleSchema, type index_TokenRequest as TokenRequest, index_TokenRequestSchema as TokenRequestSchema, type index_User as User, type index_UserResponse as UserResponse, index_UserResponseSchema as UserResponseSchema, index_UserSchema as UserSchema };
 }
 
 export { authorizationService as AuthorizationServiceTypes, auth as CommonAuthTypes, user as CommonUserTypes, index as Schemas, userService as UserServiceTypes };
